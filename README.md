@@ -4,11 +4,12 @@
 PHP 8.0
 MySQL: 5.7
 
-## Banco de Dados
+## Camandos necessário
 
 Rodar os seguintes comandos
 
 ```properties
+composer install --ignore-platform-reqs
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 ```
