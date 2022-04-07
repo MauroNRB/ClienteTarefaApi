@@ -30,3 +30,11 @@ Através da URL: http://localhost:8000/
 Login: api@user.com
 
 Senha: senha123
+
+## Como parar a execução
+
+Após finalizar a execução na linha de comando "symfony server:start" execute o seguite comando:
+
+```properties
+.\symfony.exe server:stop
+```

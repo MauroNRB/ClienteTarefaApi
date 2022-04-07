@@ -8,6 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @author Mauro Ribeiro
+ * @since 2022-04-05
+ *
  * @ORM\Entity(repositoryClass=ClientRepository::class)
  */
 class Client
