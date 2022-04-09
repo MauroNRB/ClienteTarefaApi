@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarefa{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        <h1>Criado Tarefa</h1>
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_row(form.description) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.expirationAt) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.conclusionAt) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.client) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.save) }}
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

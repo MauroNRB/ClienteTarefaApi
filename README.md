@@ -4,14 +4,17 @@
 PHP 8.0
 MySQL: 5.7
 
-## Camandos necessário
+## Pré requisitos
 
-Rodar os seguintes comandos
+Criar uma tabela do banco de dados (MySQL) do tipo utf8mb4_general_ci com o nome de "api"
+
+Em seguida rode os seguintes comandos
 
 ```properties
 composer install --ignore-platform-reqs
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate
+php bin/console doctrine:schema:update --force
 ```
 
 ## Como executar?

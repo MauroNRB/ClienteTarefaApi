@@ -1,5 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
-    <h1>Your lucky number is {{ number }}</h1>
+    <div class="main">
+        <div class="container">
+            <h1 class="text-center">Sistema de Cliente e Tarefas</h1>
+            <div class="text-center">
+                <a href="{{ path('client') }}" type="button" class="btn btn-primary btn-lg" style="margin-right: 5px;">Clientes</a>
+                <a href="{{ path('task') }}" type="button" class="btn btn-primary btn-lg">Tarefas</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

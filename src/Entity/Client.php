@@ -38,7 +38,7 @@ class Client
     private $password;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $phone;
 
@@ -98,12 +98,12 @@ class Client
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(?int $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
@@ -150,5 +150,28 @@ class Client
         }
 
         return $this;
+    }
+
+    public static function getGenreChoices()
+    {
+        return array(
+            'Mulher' => 'F',
+            'Homem' => 'M',
+            'Outros' => 'O'
+        );
+    }
+
+    public function getGenreLabels()
+    {
+        return array(
+            'F' => 'Mulher',
+            'M' => 'Homem',
+            'O' => 'Outros'
+        );
+    }
+
+    public function getGenreLabel()
+    {
+        return $this->getGenreLabels()[$this->getGenre()];
     }
 }

@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,18 +25,36 @@ class TaskType extends AbstractType
             ->add('description', TextType::class, array(
                 'label'  => 'Descrição',
                 'required' => true,
+                'attr' => array(
+                    'class' => 'form-control',
+                ),
+                'label_attr' => array(
+                    'class' => 'col-form-label',
+                ),
             ))
             ->add('expirationAt', DateType::class, array(
                 'widget' => 'choice',
                 'input'  => 'datetime_immutable',
                 'label'  => 'Data de Expiração',
                 'required' => true,
+                'attr' => array(
+                    'class' => 'form-control',
+                ),
+                'label_attr' => array(
+                    'class' => 'col-form-label',
+                ),
             ))
             ->add('conclusionAt', DateType::class, array(
                 'widget' => 'choice',
                 'input'  => 'datetime_immutable',
                 'label'  => 'Data de Conclusão',
                 'required' => true,
+                'attr' => array(
+                    'class' => 'form-control',
+                ),
+                'label_attr' => array(
+                    'class' => 'col-form-label',
+                ),
             ))
             ->add('client', EntityType::class, array(
                 'class' => Client::class,
@@ -49,6 +68,18 @@ class TaskType extends AbstractType
                 'mapped' => false,
                 'label' => 'Cliente',
                 'required' => true,
+                'attr' => array(
+                    'class' => 'form-control',
+                ),
+                'label_attr' => array(
+                    'class' => 'col-form-label',
+                ),
+            ))
+            ->add('save', SubmitType::class, array(
+                'label' => 'Salvar',
+                'attr' => array(
+                    'class' => 'btn btn-primary float-right',
+                ),
             ))
         ;
     }

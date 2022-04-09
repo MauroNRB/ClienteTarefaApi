@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% from 'task/macros.html.twig' import list %}
+{% import 'Macros/buttons.html.twig' as buttons %}
+
+{% block title %}Tarefas{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        <h1>Listagem de Tarefas</h1>
+        <div class="float-right">
+            {{ buttons.show(path('index'), 'Voltar') }}
+            {{ buttons.create(path('task_create'), 'Criar') }}
+        </div>
+        <br />
+        <div style="margin-top: 30px;">
+            {{ list(tasks) }}
+        </div>
+    </div>
+{% endblock %}

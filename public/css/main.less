@@ -1,0 +1,29 @@
+@gray:        #8f8f8f;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+label.required:after {
+  content: " *";
+  color: red;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: @gray;
+  color: #fff;
+  font-family: 'Roboto', helvetica, arial, sans-serif;
+}
+
+.main {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}

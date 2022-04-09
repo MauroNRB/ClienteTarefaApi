@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% import 'Macros/buttons.html.twig' as buttons %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        <h1>Cliente - {{ client.name }}</h1>
+        <div class="float-right">
+            {{ buttons.show(path('client'), 'Voltar') }}
+        </div>
+        <br />
+        <div class="table-responsive" style="margin-top: 30px;">
+            <table class="table table-hover table-bordered selectable">
+                <thead>
+                <tr style="display: none;">
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Nome
+                        </td>
+                        <td>
+                            {{ client.name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            E-mail
+                        </td>
+                        <td>
+                            {{ client.email }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Telefone
+                        </td>
+                        <td>
+                            {{ client.phone }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Gênero
+                        </td>
+                        <td>
+                            {{ client.getGenreLabel() }}
+                        </td>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

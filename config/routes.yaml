@@ -5,3 +5,51 @@ index:
 login:
     path: /login/
     controller: App\Controller\LoginController::indexAction
+
+client:
+    path: /client/
+    controller: App\Controller\ClientController::indexAction
+
+client_create:
+    path: /client/new
+    methods: [GET, POST]
+    controller: App\Controller\ClientController:createAction
+
+client_update:
+    path: /client/{id}/edit
+    methods: [GET, POST, PUT]
+    controller: App\Controller\ClientController:updateAction
+
+client_show:
+    path: /client/{id}
+    methods: [GET]
+    controller: App\Controller\ClientController:showAction
+
+client_delete:
+    path: /client/{id}
+    methods: [DELETE]
+    controller: App\Controller\ClientController:deleteAction
+
+task:
+    path: /task/
+    controller: App\Controller\TaskController::indexAction
+
+task_create:
+    path: /task/new
+    methods: [GET, POST]
+    controller: App\Controller\TaskController:createAction
+
+task_update:
+    path: /task/{id}/edit
+    methods: [GET, POST, PUT]
+    controller: App\Controller\TaskController:updateAction
+
+task_show:
+    path: /task/{id}
+    methods: [GET]
+    controller: App\Controller\TaskController:showAction
+
+task_delete:
+    path: /task/{id}
+    methods: [DELETE]
+    controller: App\Controller\TaskController:deleteAction

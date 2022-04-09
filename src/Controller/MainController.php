@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -10,21 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
  * @author Mauro Ribeiro
  * @since 2022-04-02
  */
-class MainController extends AbstractController
+class MainController extends BaseController
 {
     public function indexAction(Request $request): Response
     {
-        if (
-            $request->getSession()->get('username') == $this->getParameter('username')
-            && $request->getSession()->get('password') == $this->getParameter('password')
-        ) {
-            $number = random_int(0, 100);
+        $this->loginValidAction($request);
 
-            return $this->render('index.html.twig', array(
-                'number' => $number,
-            ));
-        } else {
-            return $this->redirectToRoute('login');
-        }
+        return $this->render('index.html.twig');
     }
 }

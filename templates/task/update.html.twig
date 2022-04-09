@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% import 'Macros/buttons.html.twig' as buttons %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        <h1>Editado Cliente</h1>
+        <div class="float-right">
+            {{ buttons.show(path('task'), 'Voltar') }}
+        </div>
+        <br />
+        <div style="margin-top: 30px;">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_row(form.description) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.expirationAt) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.conclusionAt) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.client) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.save) }}
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

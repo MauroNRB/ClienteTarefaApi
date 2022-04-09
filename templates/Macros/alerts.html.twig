@@ -1,0 +1,27 @@
+{% macro success(text) %}
+<div class="alert alert-success">
+    <h4 class="alert-heading">{{ 'Sucesso'|trans }}</h4>
+    {{ text }}
+</div>
+{% endmacro %}
+
+{% macro info(text) %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'Informação'|trans }}</h4>
+    {{ text }}
+</div>
+{% endmacro %}
+
+{% macro error(text) %}
+<div class="alert alert-danger">
+    <h4 class="alert-heading">{{ 'Erro'|trans }}</h4>
+    {{ text }}
+</div>
+{% endmacro %}
+
+{% macro warning(text) %}
+<div class="alert alert-warning">
+    <h4 class="alert-heading">{{ 'Alerta'|trans }}</h4>
+    {{ text }}
+</div>
+{% endmacro %}
