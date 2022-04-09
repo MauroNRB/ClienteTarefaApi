@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,12 +21,13 @@ class BaseController extends AbstractController
 
     public function indexAction(Request $request)
     {
+        $this->loginValidAction($request);
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository($this->entityType);
-        $this->loginValidAction($request);
+        $entities = $repository->findAll();
 
         return $this->render("{$this->path}/index.html.twig", array(
-            $this->pluralEntity => $repository->findAll()
+            $this->pluralEntity => $entities
         ));
     }
 
@@ -97,6 +99,20 @@ class BaseController extends AbstractController
         ));
     }
 
+    protected function isApi(Request $request)
+    {
+        return strpos($request->getPathInfo(), 'api') !== false;
+    }
+
+    protected function isTokenValidAction(Request $request)
+    {
+        if ($request->headers->get('token') != $this->getParameter('token')) {
+            return new JsonResponse(array(
+                'msg' => 'Token Invalido'
+            ), 401);
+        }
+    }
+
     protected function loginValidAction(Request $request)
     {
         if (
@@ -105,5 +121,21 @@ class BaseController extends AbstractController
         ) {
             return $this->redirectToRoute('login');
         }
+    }
+
+    public function deleteApiAction(Request $request)
+    {
+        $return = $this->isTokenValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $this->entity = $em->find($this->entityType, $request->get('id'));
+
+        $em->remove($this->entity);
+        $em->flush();
+
+        return new JsonResponse(array('msg' => 'Deletado com Sucesso'), 200);
     }
 }

@@ -6,6 +6,7 @@
 parameters:
     username: api@user.com
     password: senha123
+    token: 6250fcac9211f
     debug_toolbar: true
     debug_redirects: false
 

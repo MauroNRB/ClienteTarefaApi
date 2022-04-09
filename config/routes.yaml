@@ -10,46 +10,94 @@ client:
     path: /client/
     controller: App\Controller\ClientController::indexAction
 
+client_api:
+    path: /api/client/
+    controller: App\Controller\ClientController::indexApiAction
+
 client_create:
     path: /client/new
     methods: [GET, POST]
     controller: App\Controller\ClientController:createAction
+
+client_create_api:
+    path: /api/client/new
+    methods: [GET, POST]
+    controller: App\Controller\ClientController:createApiAction
 
 client_update:
     path: /client/{id}/edit
     methods: [GET, POST, PUT]
     controller: App\Controller\ClientController:updateAction
 
+client_update_api:
+    path: /api/client/{id}/edit
+    methods: [GET, POST, PUT]
+    controller: App\Controller\ClientController:updateApiAction
+
 client_show:
     path: /client/{id}
     methods: [GET]
     controller: App\Controller\ClientController:showAction
+
+client_show_api:
+    path: /api/client/{id}
+    methods: [GET]
+    controller: App\Controller\ClientController:showApiAction
 
 client_delete:
     path: /client/{id}
     methods: [DELETE]
     controller: App\Controller\ClientController:deleteAction
 
+client_delete_api:
+    path: /api/client/{id}
+    methods: [DELETE]
+    controller: App\Controller\ClientController:deleteApiAction
+
 task:
     path: /task/
     controller: App\Controller\TaskController::indexAction
+
+task_api:
+    path: /api/task/
+    controller: App\Controller\TaskController::indexApiAction
 
 task_create:
     path: /task/new
     methods: [GET, POST]
     controller: App\Controller\TaskController:createAction
 
+task_create_api:
+    path: /api/task/new
+    methods: [GET, POST]
+    controller: App\Controller\TaskController:createApiAction
+
 task_update:
     path: /task/{id}/edit
     methods: [GET, POST, PUT]
     controller: App\Controller\TaskController:updateAction
+
+task_update_api:
+    path: /api/task/{id}/edit
+    methods: [GET, POST, PUT]
+    controller: App\Controller\TaskController:updateApiAction
 
 task_show:
     path: /task/{id}
     methods: [GET]
     controller: App\Controller\TaskController:showAction
 
+task_show_api:
+    path: /api/task/{id}
+    methods: [GET]
+    controller: App\Controller\TaskController:showApiAction
+
 task_delete:
     path: /task/{id}
     methods: [DELETE]
     controller: App\Controller\TaskController:deleteAction
+
+task_delete_api:
+    path: /api/task/{id}
+    methods: [DELETE]
+    controller: App\Controller\TaskController:deleteApiAction

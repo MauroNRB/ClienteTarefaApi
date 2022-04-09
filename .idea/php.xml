@@ -92,6 +92,12 @@
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1">
