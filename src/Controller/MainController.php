@@ -13,7 +13,10 @@ class MainController extends BaseController
 {
     public function indexAction(Request $request): Response
     {
-        $this->loginValidAction($request);
+        $return = $this->loginValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
 
         return $this->render('index.html.twig');
     }

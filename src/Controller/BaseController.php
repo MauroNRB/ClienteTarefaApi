@@ -21,7 +21,11 @@ class BaseController extends AbstractController
 
     public function indexAction(Request $request)
     {
-        $this->loginValidAction($request);
+        $return = $this->loginValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
+
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository($this->entityType);
         $entities = $repository->findAll();
@@ -33,7 +37,10 @@ class BaseController extends AbstractController
 
     public function createAction(Request $request)
     {
-        $this->loginValidAction($request);
+        $return = $this->loginValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
         $form = $this->createForm($this->formType, $this->entity);
 
         $form->handleRequest($request);
@@ -54,7 +61,10 @@ class BaseController extends AbstractController
 
     public function updateAction(Request $request)
     {
-        $this->loginValidAction($request);
+        $return = $this->loginValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
         $em = $this->getDoctrine()->getManager();
         $this->entity = $em->find($this->entityType, $request->get('id'));
         $form = $this->createForm($this->formType, $this->entity);
@@ -76,7 +86,10 @@ class BaseController extends AbstractController
 
     public function deleteAction(Request $request)
     {
-        $this->loginValidAction($request);
+        $return = $this->loginValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
 
         $em = $this->getDoctrine()->getManager();
         $this->entity = $em->find($this->entityType, $request->get('id'));
@@ -89,7 +102,10 @@ class BaseController extends AbstractController
 
     public function showAction(Request $request)
     {
-        $this->loginValidAction($request);
+        $return = $this->loginValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
 
         $em = $this->getDoctrine()->getManager();
         $this->entity = $em->find($this->entityType, $request->get('id'));
@@ -97,11 +113,6 @@ class BaseController extends AbstractController
         return $this->render("{$this->path}/show.html.twig", array(
             $this->path => $this->entity,
         ));
-    }
-
-    protected function isApi(Request $request)
-    {
-        return strpos($request->getPathInfo(), 'api') !== false;
     }
 
     protected function isTokenValidAction(Request $request)

@@ -26,7 +26,10 @@ class TaskController extends BaseController
 
     public function createAction(Request $request):Response
     {
-        $this->loginValidAction($request);
+        $return = $this->loginValidAction($request);
+        if ($return instanceof Response) {
+            return $return;
+        }
         $form = $this->createForm($this->formType, $this->entity);
 
         $form->handleRequest($request);
